@@ -20,7 +20,7 @@ class CinemaParserController extends Controller
 
     public function update()
     {
-    	$todayCinemas = Cinema::where('created_at', '>=', Carbon::today())->delete();
+    	$todayCinemas = Cinema::truncate();
 
     	$this->service->setUrl('https://cityopen.ru/afisha/kinoteatr-salavat');
     	$this->service->getHtml();
